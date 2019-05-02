@@ -412,6 +412,29 @@ module.exports = function(webpackEnv) {
                 getLocalIdent: getCSSModuleLocalIdent,
               }),
             },
+            // less-loader
+            {
+              test: /\.less$/,
+              use: [
+                {
+                  loader: 'style-loader', // creates style nodes from JS strings
+                },
+                {
+                  loader: 'css-loader', // translates CSS into CommonJS
+                  options : {
+                    sourceMap: isEnvProduction && shouldUseSourceMap,
+                    modules: true,
+                    localIdentName: isEnvDevelopment ? '[path][name]-[local]' : ''
+                  }
+                },
+                {
+                  loader: 'less-loader', // compiles Less to CSS
+                  options: {
+                    javascriptEnabled: true
+                  }
+                },
+              ],
+            },
             // Opt-in support for SASS (using .scss or .sass extensions).
             // By default we support SASS Modules with the
             // extensions .module.scss or .module.sass
