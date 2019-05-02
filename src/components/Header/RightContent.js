@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Spin, Tag, Menu, Icon, Avatar, Tooltip, Dropdown } from 'antd';
+import { Button,  Spin, Tag, Menu, Icon, Avatar, Tooltip, Dropdown } from 'antd';
 import styles from './index.less';
 
 export default class GlobalHeaderRight extends PureComponent {
@@ -34,7 +34,7 @@ export default class GlobalHeaderRight extends PureComponent {
 
         let className = styles.right;
         return (
-            <div className="antd-pro-components-global-header-index-right">
+            <div className={styles.right}>
                 <Dropdown overlay={menu}>
                     <span className={`${styles.action} ${styles.account}`}>
                         <Avatar
