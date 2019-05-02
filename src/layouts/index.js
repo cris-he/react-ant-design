@@ -2,7 +2,7 @@
 import React from 'react';
 
 import SideMenu from '../components/SideMenu';
-import BasicHeader from '../components/Header';
+import BasicHeader from '../components/GlobalHeader';
 
 import 'antd/dist/antd.css';
 import { Layout } from 'antd';

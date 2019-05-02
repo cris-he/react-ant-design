@@ -32,7 +32,6 @@ export default class GlobalHeaderRight extends PureComponent {
             </Menu>
         );
 
-        let className = styles.right;
         return (
             <div className={styles.right}>
                 <Dropdown overlay={menu}>
@@ -40,7 +39,7 @@ export default class GlobalHeaderRight extends PureComponent {
                         <Avatar
                             size="small"
                             className={styles.avatar}
-                            // src={currentUser.avatar}
+                            src="https://www.shareicon.net/download/2016/08/01/640603_game.ico"
                             alt="avatar"
                         />
                         <span className={styles.name}>Kris He</span>

@@ -1,6 +1,6 @@
 import { Route, Switch } from 'react-router-dom';
 import React, { Component } from 'react';
-
+import styles from './index.less';
 import RightContent from './RightContent';
 
 import { Layout, Menu, Icon } from 'antd';
@@ -22,7 +22,7 @@ class BasicHeader extends Component {
         return (
             <Header style={{ background: '#fff', padding: 0 }}>
                 <Icon
-                    className="trigger"
+                    className={styles.trigger}
                     type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
                     onClick={this.toggle}
                 />
