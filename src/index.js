@@ -4,10 +4,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
-// layouts
-import BasicLayout from './layouts/BasicLayout';
-import AuthLayout from './layouts/AuthLayout';
-
 
 // public pages
 import Login from './pages/Auth/Login';
