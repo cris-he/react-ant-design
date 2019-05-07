@@ -2,7 +2,7 @@
 import React from 'react';
 
 import SideMenu from '../components/SideMenu';
-import BasicHeader from '../components/GlobalHeader';
+import BasicHeader from '../components/BasicHeader';
 
 import 'antd/dist/antd.css';
 import { Layout } from 'antd';
@@ -15,7 +15,7 @@ class BasicLayout extends React.Component {
 
 
     componentDidMount() {
-        console.log('layout', this.props)
+        console.log('BasicLayout', this.props)
     }
 
     render() {

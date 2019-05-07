@@ -7,7 +7,7 @@ import './App.css';
 import Dashboard from './Dashboard';
 import Simple from './Simple';
 
-import BasicLayout from '../layouts';
+import BasicLayout from '../layouts/BasicLayout';
 
 class App extends Component {
   render() {
