@@ -2,7 +2,8 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 
-import 'antd/dist/antd.css';
+import styles from './index.less'
+
 import { Layout, Menu, Icon } from 'antd';
 
 const { Sider } = Layout;
@@ -25,7 +26,7 @@ class SideMenu extends React.Component {
                 collapsible
                 collapsed={this.state.collapsed}
             >
-                <div className="logo" />
+                <div className={styles.logo} />
                 <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
                     <Menu.Item key="1">
                         <Link to="/dashboard">

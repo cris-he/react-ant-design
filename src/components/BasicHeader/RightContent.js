@@ -5,7 +5,7 @@ import styles from './index.less';
 export default class GlobalHeaderRight extends PureComponent {
 
     componentDidMount() {
-        console.log('style', styles)
+        // console.log('style', styles)
     }
 
     render() {

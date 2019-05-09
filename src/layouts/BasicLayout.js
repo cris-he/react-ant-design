@@ -4,8 +4,10 @@ import React from 'react';
 import SideMenu from '../components/SideMenu';
 import BasicHeader from '../components/BasicHeader';
 
-import 'antd/dist/antd.css';
+import styles from './BasicLayout.less';
+
 import { Layout } from 'antd';
+const { Content } = Layout;
 
 
 class BasicLayout extends React.Component {
@@ -15,7 +17,7 @@ class BasicLayout extends React.Component {
 
 
     componentDidMount() {
-        console.log('BasicLayout', this.props)
+        console.log('BasicLayout', styles)
     }
 
     render() {
@@ -25,7 +27,9 @@ class BasicLayout extends React.Component {
                 <SideMenu />
                 <Layout>
                     <BasicHeader />
-                    {children}
+                    <Content className={styles.content}>
+                        {children}
+                    </Content>
                 </Layout>
             </Layout>
         );

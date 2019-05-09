@@ -1,23 +1,52 @@
-import { Route, Switch } from 'react-router-dom';
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-import { Layout, Menu, Icon } from 'antd';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as authAction from '../../actions/auth-action'
 
-const { Header, Sider, Content } = Layout;
+import { Button } from 'antd';
+
 
 class Dashboard extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {}
+    }
+
+    componentDidMount() {
+        // this.props.authAction.signIn({
+        //     email: 'fake@admin',
+        //     password: '123'
+        // })
+    }
+
+    showSomething() {
+        console.log('props', this.props)
+        console.log('state', this.state)
+    }
+
     render() {
         return (
             <div>
-                <Content style={{
-                    margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280,
-                }}
-                >
-                    Dashboard
-                    </Content>
+                <Button onClick={() => this.showSomething()}>TEST</Button>
             </div>
         );
     }
 }
 
-export default Dashboard;
+function mapStateToProps(state, ownProps) {
+    console.log('mapStateToProps', state, ownProps);
+    return {
+        user: state.user
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        authAction: bindActionCreators(authAction, dispatch),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

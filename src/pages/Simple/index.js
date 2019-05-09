@@ -9,12 +9,7 @@ const { Header, Sider, Content } = Layout;
 class Simple extends Component {
     render() {
         return (
-            <Content style={{
-                margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280,
-            }}
-            >
-                Simple
-            </Content>
+            <p>Simple</p>
         );
     }
 }

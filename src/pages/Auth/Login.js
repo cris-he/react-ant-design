@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import { Checkbox, Alert, message, Icon } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as authAction from '../../actions/auth-action'
 
 import styles from './Login.less';
-import AuthLayout from '../../layouts/AuthLayout';
+import { Checkbox, Alert, message, Icon } from 'antd';
 
+import AuthLayout from '../../layouts/AuthLayout';
 import Login from '../../components/Login';
 const { Tab, UserName, Password, Mobile, Captcha, Submit } = Login;
-
 
 class LoginPage extends Component {
   state = {
@@ -38,15 +41,10 @@ class LoginPage extends Component {
     });
 
   handleSubmit = (err, values) => {
-    const { type } = this.state;
     if (!err) {
-      const { dispatch } = this.props;
-      dispatch({
-        type: 'login/login',
-        payload: {
-          ...values,
-          type,
-        },
+      this.props.authAction.signIn({
+        email: 'fake@admin',
+        password: '123'
       });
     }
   };
@@ -160,4 +158,17 @@ class LoginPage extends Component {
   }
 }
 
-export default LoginPage;
+function mapStateToProps(state, ownProps) {
+  console.log('mapStateToProps', state, ownProps);
+  return {
+    user: state.user
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    authAction: bindActionCreators(authAction, dispatch),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
