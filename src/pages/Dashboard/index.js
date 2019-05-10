@@ -3,7 +3,9 @@ import { Route, Switch } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as authAction from '../../actions/auth-action'
+import * as authAction from '../../actions/auth-action';
+
+import IntlMessage from '../../utils/intl-message';
 
 import { Button } from 'antd';
 
@@ -37,7 +39,7 @@ class Dashboard extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-    console.log('mapStateToProps', state, ownProps);
+    console.log('mapStateToProps: Dashboard', state, ownProps);
     return {
         user: state.user
     }

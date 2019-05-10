@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Icon } from 'antd';
 import DocumentTitle from 'react-document-title';
-import styles from './AuthLayout.less';
+import styles from './PublicLayout.less';
 
 
 const copyright = (

@@ -1,33 +1,41 @@
 import React, { PureComponent } from 'react';
-import { Button,  Spin, Tag, Menu, Icon, Avatar, Tooltip, Dropdown } from 'antd';
+import { Route, Switch } from 'react-router-dom';
+
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as authAction from '../../actions/auth-action';
+import * as settingAction from '../../actions/setting-action';
+
+import IntlMessage from '../../utils/intl-message';
+
 import styles from './index.less';
 
-export default class GlobalHeaderRight extends PureComponent {
+import { Button, Spin, Tag, Menu, Icon, Avatar, Tooltip, Dropdown } from 'antd';
+
+import SelectLang from '../SelectLang';
+
+class BasicHeaderRightContent extends PureComponent {
 
     componentDidMount() {
         // console.log('style', styles)
     }
 
     render() {
-
+        // const { user } = this.props;
         const menu = (
             <Menu className={styles.menu} selectedKeys={[]} >
                 <Menu.Item key="userCenter">
                     <Icon type="user" />
-                    account center
+                    Profile 
                 </Menu.Item>
                 <Menu.Item key="userinfo">
                     <Icon type="setting" />
-                    account settings
-                </Menu.Item>
-                <Menu.Item key="triggerError">
-                    <Icon type="close-circle" />
-                    Trigger Error
+                     Settings
                 </Menu.Item>
                 <Menu.Divider />
                 <Menu.Item key="logout">
                     <Icon type="logout" />
-                    logout
+                    Logout
                 </Menu.Item>
             </Menu>
         );
@@ -45,7 +53,25 @@ export default class GlobalHeaderRight extends PureComponent {
                         <span className={styles.name}>Kris He</span>
                     </span>
                 </Dropdown>
+                <SelectLang className={styles.action} />
             </div>
         );
     }
 }
+
+function mapStateToProps(state, ownProps) {
+    console.log('mapStateToProps: RightContent', state, ownProps);
+    return {
+        user: state.user,
+        settings: state.settings
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        authAction: bindActionCreators(authAction, dispatch),
+        settingAction: bindActionCreators(settingAction, dispatch),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BasicHeaderRightContent);

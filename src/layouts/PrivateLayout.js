@@ -2,22 +2,22 @@
 import React from 'react';
 
 import SideMenu from '../components/SideMenu';
-import BasicHeader from '../components/BasicHeader';
+import PrivateHeader from '../components/PrivateHeader';
 
-import styles from './BasicLayout.less';
+import styles from './PrivateLayout.less';
 
 import { Layout } from 'antd';
 const { Content } = Layout;
 
 
-class BasicLayout extends React.Component {
+class PrivateLayout extends React.Component {
     state = {
         collapsed: false,
     };
 
 
     componentDidMount() {
-        console.log('BasicLayout', styles)
+        // console.log('PrivateLayout', styles)
     }
 
     render() {
@@ -26,7 +26,7 @@ class BasicLayout extends React.Component {
             <Layout style={{ minHeight: '100vh' }}>
                 <SideMenu />
                 <Layout>
-                    <BasicHeader />
+                    <PrivateHeader />
                     <Content className={styles.content}>
                         {children}
                     </Content>
@@ -36,4 +36,4 @@ class BasicLayout extends React.Component {
     }
 }
 
-export default BasicLayout;
+export default PrivateLayout;

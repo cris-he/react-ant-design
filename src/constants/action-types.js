@@ -1,4 +1,9 @@
-//Auth const
+/* APP */
+export const RESTORE_SETTINGS = 'default_settings';
+export const SET_LOCALE = 'set_locale';
+export const SET_LOCALE_SUCCESS = 'set_locale_success';
+
+/* Auth */
 export const SIGN_UP = 'sign_up';
 export const SIGN_UP_SUCCESS = 'sign_up_success';
 export const SIGN_IN = 'sign_in';

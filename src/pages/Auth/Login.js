@@ -8,7 +8,7 @@ import * as authAction from '../../actions/auth-action'
 import styles from './Login.less';
 import { Checkbox, Alert, message, Icon } from 'antd';
 
-import AuthLayout from '../../layouts/AuthLayout';
+import AuthLayout from '../../layouts/PublicLayout';
 import Login from '../../components/Login';
 const { Tab, UserName, Password, Mobile, Captcha, Submit } = Login;
 
@@ -63,103 +63,101 @@ class LoginPage extends Component {
     const { login, submitting } = this.props;
     const { type, autoLogin } = this.state;
     return (
-      <AuthLayout>
-        <div className={styles.main}>
-          <Login
-            defaultActiveKey={type}
-            onTabChange={this.onTabChange}
-            onSubmit={this.handleSubmit}
-            ref={form => {
-              this.loginForm = form;
-            }}
-          >
-            <Tab key="account" tab={'app.login.tab-login-credentials'}>
+      <div className={styles.main}>
+        <Login
+          defaultActiveKey={type}
+          onTabChange={this.onTabChange}
+          onSubmit={this.handleSubmit}
+          ref={form => {
+            this.loginForm = form;
+          }}
+        >
+          <Tab key="account" tab={'app.login.tab-login-credentials'}>
 
-              <UserName
-                name="userName"
-                placeholder={`${'app.login.userName'}: admin or user`}
-                rules={[
-                  {
-                    required: true,
-                    message: 'validation.userName.required',
-                  },
-                ]}
-              />
-              <Password
-                name="password"
-                placeholder={`${'app.login.password'}: ant.design`}
-                rules={[
-                  {
-                    required: true,
-                    message: 'validation.password.required',
-                  },
-                ]}
-                onPressEnter={e => {
-                  e.preventDefault();
-                  this.loginForm.validateFields(this.handleSubmit);
-                }}
-              />
-            </Tab>
-            <Tab key="mobile" tab={'app.login.tab-login-mobile'}>
+            <UserName
+              name="userName"
+              placeholder={`${'app.login.userName'}: admin or user`}
+              rules={[
+                {
+                  required: true,
+                  message: 'validation.userName.required',
+                },
+              ]}
+            />
+            <Password
+              name="password"
+              placeholder={`${'app.login.password'}: ant.design`}
+              rules={[
+                {
+                  required: true,
+                  message: 'validation.password.required',
+                },
+              ]}
+              onPressEnter={e => {
+                e.preventDefault();
+                this.loginForm.validateFields(this.handleSubmit);
+              }}
+            />
+          </Tab>
+          <Tab key="mobile" tab={'app.login.tab-login-mobile'}>
 
-              <Mobile
-                name="mobile"
-                placeholder={'form.phone-number.placeholder'}
-                rules={[
-                  {
-                    required: true,
-                    message: 'validation.phone-number.required',
-                  },
-                  {
-                    pattern: /^1\d{10}$/,
-                    message: 'validation.phone-number.wrong-format',
-                  },
-                ]}
-              />
-              <Captcha
-                name="captcha"
-                placeholder={'form.verification-code.placeholder'}
-                countDown={120}
-                onGetCaptcha={this.onGetCaptcha}
-                getCaptchaButtonText={'form.get-captcha'}
-                getCaptchaSecondText={'form.captcha.second'}
-                rules={[
-                  {
-                    required: true,
-                    message: 'validation.verification-code.required',
-                  },
-                ]}
-              />
-            </Tab>
-            <div>
-              <Checkbox checked={autoLogin} onChange={this.changeAutoLogin}>
-                "app.login.remember-me"
+            <Mobile
+              name="mobile"
+              placeholder={'form.phone-number.placeholder'}
+              rules={[
+                {
+                  required: true,
+                  message: 'validation.phone-number.required',
+                },
+                {
+                  pattern: /^1\d{10}$/,
+                  message: 'validation.phone-number.wrong-format',
+                },
+              ]}
+            />
+            <Captcha
+              name="captcha"
+              placeholder={'form.verification-code.placeholder'}
+              countDown={120}
+              onGetCaptcha={this.onGetCaptcha}
+              getCaptchaButtonText={'form.get-captcha'}
+              getCaptchaSecondText={'form.captcha.second'}
+              rules={[
+                {
+                  required: true,
+                  message: 'validation.verification-code.required',
+                },
+              ]}
+            />
+          </Tab>
+          <div>
+            <Checkbox checked={autoLogin} onChange={this.changeAutoLogin}>
+              "app.login.remember-me"
             </Checkbox>
-              <a style={{ float: 'right' }} href="">
-                "app.login.forgot-password"
+            <a style={{ float: 'right' }} href="">
+              "app.login.forgot-password"
             </a>
-            </div>
-            <Submit loading={submitting}>
-              "app.login.login"
+          </div>
+          <Submit loading={submitting}>
+            "app.login.login"
           </Submit>
-            <div className={styles.other}>
-              "app.login.sign-in-with"
+          <div className={styles.other}>
+            "app.login.sign-in-with"
             <Icon type="alipay-circle" className={styles.icon} theme="outlined" />
-              <Icon type="taobao-circle" className={styles.icon} theme="outlined" />
-              <Icon type="weibo-circle" className={styles.icon} theme="outlined" />
-              <Link className={styles.register} to="/user/register">
-                "app.login.signup"
+            <Icon type="taobao-circle" className={styles.icon} theme="outlined" />
+            <Icon type="weibo-circle" className={styles.icon} theme="outlined" />
+            <Link className={styles.register} to="/user/register">
+              "app.login.signup"
             </Link>
-            </div>
-          </Login>
-        </div>
-      </AuthLayout>
+          </div>
+        </Login>
+      </div>
     );
   }
 }
 
 function mapStateToProps(state, ownProps) {
-  console.log('mapStateToProps', state, ownProps);
+  console.log('mapStateToProps: Auth', state, ownProps);
   return {
     user: state.user
   }

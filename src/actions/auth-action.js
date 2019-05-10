@@ -14,6 +14,15 @@ export const signUp = (user) => {
         data: user
     };
 };
+
+export const signInSuccess = (user) => {
+    console.log("auth-action: signInSuccess", user);
+    return {
+        type: SIGN_IN_SUCCESS,
+        data: user
+    }
+};
+
 export const signIn = (user) => {
     console.log('auth-action: signIn', user);
     return {
@@ -21,11 +30,7 @@ export const signIn = (user) => {
         data: user
     };
 };
-export const signOut = () => {
-    return {
-        type: SIGN_OUT
-    };
-};
+
 export const signUpSuccess = (user) => {
     return {
         type: SIGN_UP_SUCCESS,
@@ -33,12 +38,10 @@ export const signUpSuccess = (user) => {
     };
 };
 
-export const signInSuccess = (user) => {
-    console.log("auth-action: signInSuccess",user);
+export const signOut = () => {
     return {
-        type: SIGN_IN_SUCCESS,
-        data: user
-    }
+        type: SIGN_OUT
+    };
 };
 
 export const signOutSuccess = () => {
