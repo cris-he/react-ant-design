@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import IntlMessage from '../../utils/intl-message';
+import IntlMessage from '../../utils/IntlMessage';
 
 import styles from './index.less'
 

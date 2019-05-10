@@ -12,9 +12,6 @@ import * as settingAction from '../actions/setting-action';
 import { IntlProvider } from 'react-intl';
 import i18n from '../i18n';
 
-/* Local Storage Utilities */
-import { setLocale, getLocale, removeLocale } from '../utils/local-storage';
-
 /* Pages */
 import PrivatePage from './PrivatePage';
 import PublicPage from './PublicPage';

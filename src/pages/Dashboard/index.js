@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as authAction from '../../actions/auth-action';
 
-import IntlMessage from '../../utils/intl-message';
+import IntlMessage from '../../utils/IntlMessage';
 
 import { Button } from 'antd';
 

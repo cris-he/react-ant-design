@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import * as authAction from '../../actions/auth-action';
 import * as settingAction from '../../actions/setting-action';
 
-import IntlMessage from '../../utils/intl-message';
+import IntlMessage from '../../utils/IntlMessage';
 
 import styles from './index.less';
 
