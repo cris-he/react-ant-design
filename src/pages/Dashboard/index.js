@@ -7,7 +7,15 @@ import * as authAction from '../../actions/auth-action';
 
 import IntlMessage from '../../utils/IntlMessage';
 
-import { Button } from 'antd';
+import { Button, Row, Col, Card, List, Avatar } from 'antd';
+
+import ContentHeader from '../../components/ContentHeader';
+
+
+import styles from './index.less';
+
+import { PageHeader, Typography } from 'antd';
+const { Paragraph } = Typography;
 
 
 class Dashboard extends Component {
@@ -30,8 +38,49 @@ class Dashboard extends Component {
     }
 
     render() {
+        console.log('Dashboard: props', this.props)
+
+        const HeaderContent =
+            this.props.user.token ? (
+                <div className={styles.pageHeaderContent}>
+                    <div className={styles.avatar}>
+                        <Avatar size="large" src="https://www.shareicon.net/download/2016/08/01/640603_game.ico" />
+                    </div>
+                    <div className={styles.content}>
+                        <div className={styles.contentTitle}>
+                            早安，
+                {this.props.user.token}
+                            ，祝你开心每一天！
+              </div>
+                        <div>
+                            {this.props.user.token} |{this.props.user.token}
+                        </div>
+                    </div>
+                </div>
+            ) : null;
+
+        const extraContent = (
+            <div className={styles.extraContent}>
+                <div className={styles.statItem}>
+                    <p>项目数</p>
+                    <p>56</p>
+                </div>
+                <div className={styles.statItem}>
+                    <p>团队内排名</p>
+                    <p>
+                        8<span> / 24</span>
+                    </p>
+                </div>
+                <div className={styles.statItem}>
+                    <p>项目访问</p>
+                    <p>2,223</p>
+                </div>
+            </div>
+        );
+
         return (
             <div>
+                <ContentHeader content={HeaderContent} extraContent={extraContent} />
                 <Button onClick={() => this.showSomething()}>TEST</Button>
             </div>
         );

@@ -2,6 +2,7 @@
 export const RESTORE_SETTINGS = 'default_settings';
 export const SET_LOCALE = 'set_locale';
 export const SET_LOCALE_SUCCESS = 'set_locale_success';
+export const SIDE_MENU_COLLAPSE = 'side_menu_collapse';
 
 /* Auth */
 export const SIGN_UP = 'sign_up';

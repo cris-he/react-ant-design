@@ -1,7 +1,8 @@
 import {
     RESTORE_SETTINGS,
     SET_LOCALE,
-    SET_LOCALE_SUCCESS
+    SET_LOCALE_SUCCESS,
+    SIDE_MENU_COLLAPSE,
 } from '../constants/action-types';
 
 
@@ -30,5 +31,11 @@ export const setLocaleSuccess = (locale) => {
     return {
         type: SET_LOCALE_SUCCESS,
         data: locale
+    }
+};
+
+export const handleSideMenuCollapse = () => {
+    return {
+        type: SIDE_MENU_COLLAPSE
     }
 };

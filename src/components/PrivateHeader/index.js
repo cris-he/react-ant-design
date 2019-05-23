@@ -7,24 +7,36 @@ import { Layout, Menu, Icon } from 'antd';
 const { Header } = Layout;
 
 
-class BasicHeader extends Component {
+class PrivateHeader extends Component {
     state = {
         collapsed: false,
     };
 
+    componentWillUnmount() {
+        this.triggerResizeEvent.cancel();
+    }
+
+    triggerResizeEvent() {
+        const event = document.createEvent('HTMLEvents');
+        event.initEvent('resize', true, false);
+        window.dispatchEvent(event);
+    }
+
     toggle = () => {
-        this.setState({
-            collapsed: !this.state.collapsed,
-        });
+        const { handleSideMenuCollapse } = this.props;
+        handleSideMenuCollapse();
+        this.triggerResizeEvent();
     }
 
     render() {
+        const { settings, handleSideMenuCollapse } = this.props;
+        console.log('PrivateHeader', this.props);
         return (
             <Header style={{ background: '#fff', padding: 0 }}>
                 <Icon
                     className={styles.trigger}
-                    type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-                    onClick={this.toggle}
+                    type={settings.collapsedSideMenu ? 'menu-unfold' : 'menu-fold'}
+                    onClick={handleSideMenuCollapse}
                 />
                 <RightContent />
             </Header>
@@ -32,4 +44,4 @@ class BasicHeader extends Component {
     }
 }
 
-export default BasicHeader;
+export default PrivateHeader;
