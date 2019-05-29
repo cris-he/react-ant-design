@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
 
 import IntlMessage from '../../utils/IntlMessage';
 
@@ -25,7 +26,12 @@ class SideMenu extends React.Component {
     }
 
     render() {
-        const {collapsedSideMenu} = this.props.settings;
+        const { collapsedSideMenu, fixedSideMenu, theme } = this.props.settings;
+
+        const siderClassName = classNames(styles.sider, {
+            [styles.fixSiderBar]: fixedSideMenu,
+            [styles.light]: theme === 'light',
+        });
 
         return (
             <Sider
@@ -33,6 +39,7 @@ class SideMenu extends React.Component {
                 collapsible
                 collapsed={collapsedSideMenu}
                 width={256}
+                className={siderClassName}
 
             >
                 <div className={styles.logo} />
@@ -40,13 +47,13 @@ class SideMenu extends React.Component {
                     <Menu.Item key="1">
                         <Link to="/dashboard">
                             <Icon type="user" />
-                            <span><IntlMessage id="SideMenu-Dashboard"/></span>
+                            <span><IntlMessage id="SideMenu-Dashboard" /></span>
                         </Link>
                     </Menu.Item>
                     <Menu.Item key="2">
                         <Link to="/simple">
                             <Icon type="video-camera" />
-                            <span><IntlMessage id="SideMenu-Simple"/></span>
+                            <span><IntlMessage id="SideMenu-Simple" /></span>
                         </Link>
                     </Menu.Item>
                 </Menu>

@@ -28,17 +28,26 @@ class PrivateHeader extends Component {
         this.triggerResizeEvent();
     }
 
+    getHeadWidth = () => {
+        const { isMobile, collapsedSideMenu, fixedHeader } = this.props.settings;
+        if (isMobile || !fixedHeader) {
+            return '100%';
+        }
+        return collapsedSideMenu ? 'calc(100% - 80px)' : 'calc(100% - 256px)';
+    };
+
     render() {
         const { settings, handleSideMenuCollapse } = this.props;
+        const width = this.getHeadWidth();
         console.log('PrivateHeader', this.props);
         return (
-            <Header style={{ background: '#fff', padding: 0 }}>
-                <Icon
-                    className={styles.trigger}
-                    type={settings.collapsedSideMenu ? 'menu-unfold' : 'menu-fold'}
-                    onClick={handleSideMenuCollapse}
-                />
-                <RightContent />
+            <Header style={{ padding: 0, width }} className={settings.fixedHeader ? styles.fixedHeader : ''}>
+                <div className={styles.header}>
+                    <span className={styles.trigger} onClick={handleSideMenuCollapse}>
+                        <Icon type={settings.collapsedSideMenu ? 'menu-unfold' : 'menu-fold'} />
+                    </span>
+                    <RightContent />
+                </div>
             </Header>
         );
     }

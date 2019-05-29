@@ -11,6 +11,7 @@ import { Button, Row, Col, Card, List, Avatar } from 'antd';
 
 import ContentHeader from '../../components/ContentHeader';
 
+import { Layout } from 'antd';
 
 import styles from './index.less';
 
