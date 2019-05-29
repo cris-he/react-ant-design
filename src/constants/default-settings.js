@@ -4,6 +4,6 @@ const defaultSetting  = {
     'isMobile': false,
     'fixedHeader': false,
     'fixedSideMenu': true,
-    'collapsedSideMenu': true,
+    'collapsedSideMenu': false,
 };
 export default defaultSetting;

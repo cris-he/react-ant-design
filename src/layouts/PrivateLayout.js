@@ -24,7 +24,7 @@ class PrivateLayout extends React.Component {
         const { fixedSideMenu, isMobile, collapsedSideMenu } = this.props.settings;
         if (fixedSideMenu && !isMobile) {
             return {
-                paddingLeft: collapsedSideMenu ? '80px' : '256px',
+                paddingLeft: collapsedSideMenu ? '0px' : '0px',
             };
         }
         return null;
@@ -39,7 +39,10 @@ class PrivateLayout extends React.Component {
         const contentStyle = !fixedHeader ? { paddingTop: 0 } : {};
         return (
             <Layout>
-                <SideMenu />
+                <SideMenu
+                    handleSideMenuCollapse={this.handleSideMenuCollapse}
+                    {...this.props}
+                />
                 <Layout
                     style={{
                         ...this.getLayoutStyle(),

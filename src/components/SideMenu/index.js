@@ -20,12 +20,20 @@ class SideMenu extends React.Component {
         });
     }
 
+    componentDidMount() {
+        console.log('SideMenu - indexjs: props', this.props);
+    }
+
     render() {
+        const {collapsedSideMenu} = this.props.settings;
+
         return (
             <Sider
                 trigger={null}
                 collapsible
-                collapsed={this.state.collapsed}
+                collapsed={collapsedSideMenu}
+                width={256}
+
             >
                 <div className={styles.logo} />
                 <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
