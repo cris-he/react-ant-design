@@ -33,7 +33,7 @@ class BasicHeaderRightContent extends PureComponent {
                      Settings
                 </Menu.Item>
                 <Menu.Divider />
-                <Menu.Item key="logout">
+                <Menu.Item key="logout" onClick={()=>this.props.authAction.signOut()}>
                     <Icon type="logout" />
                     Logout
                 </Menu.Item>

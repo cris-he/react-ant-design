@@ -13,7 +13,7 @@ class PrivateHeader extends Component {
     };
 
     componentWillUnmount() {
-        this.triggerResizeEvent.cancel();
+        // this.triggerResizeEvent.cancel();
     }
 
     triggerResizeEvent() {

@@ -60,7 +60,12 @@ class LoginPage extends Component {
   );
 
   render() {
-    const { login, submitting } = this.props;
+    const isAuthenticated = this.props.user;
+    if (isAuthenticated && isAuthenticated.token) {
+      return <Redirect to='/dashboard' />;
+    }
+
+    const { submitting } = this.props;
     const { type, autoLogin } = this.state;
     return (
       <div className={styles.main}>

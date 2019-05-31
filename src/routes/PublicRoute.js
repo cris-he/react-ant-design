@@ -7,6 +7,7 @@ import Login from '../pages/Auth/Login';
 const PublicRoute = () => (
     <Switch>
         <Route path='/auth/login' component={Login} />
+        <Redirect from='/' to="/auth/login" />
     </Switch>
 )
 

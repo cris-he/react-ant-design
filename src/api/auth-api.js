@@ -14,5 +14,5 @@ export async function signUp(user) {
 }
 
 export async function signOut() {
-    return false;
+    return true;
 }

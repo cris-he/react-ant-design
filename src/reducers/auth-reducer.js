@@ -17,15 +17,13 @@ export default (state = INIT_STATE, action) => {
                 ...action.data
             }
         }
-        case SIGN_OUT_SUCCESS: {
-            return {
-                token: action.data
-            }
-        }
         case SIGN_UP_SUCCESS: {
             return {
                 token: action.data
             }
+        }
+        case SIGN_OUT_SUCCESS: {
+            return {}
         }
         default:
             return state
