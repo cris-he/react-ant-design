@@ -1,14 +1,13 @@
 import React from 'react';
-import { formatMessage } from 'umi-plugin-react/locale';
-import Link from 'umi/link';
-import Exception from '@/components/Exception';
+import Exception from '../../components/Exception';
+
+import IntlMessage from '../../utils/IntlMessage';
 
 const Exception403 = () => (
   <Exception
     type="403"
-    desc={formatMessage({ id: 'app.exception.description.403' })}
-    linkElement={Link}
-    backText={formatMessage({ id: 'app.exception.back' })}
+    desc={<IntlMessage id="SideMenu-Exception-403" />}
+    backText={<IntlMessage id="SideMenu-Exception-Back-Button" />}
   />
 );
 

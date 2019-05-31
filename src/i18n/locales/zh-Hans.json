@@ -1,4 +1,9 @@
 {
   "SideMenu-Dashboard": "Dashboard",
-  "SideMenu-Simple": "简单"
+  "SideMenu-Simple": "简单",
+  "SideMenu-Exception": "异常页",
+  "SideMenu-Exception-403": "抱歉，你无权访问该页面",
+  "SideMenu-Exception-404": "抱歉，你访问的页面不存在",
+  "SideMenu-Exception-500": "抱歉，服务器出错了",
+  "SideMenu-Exception-Back-Button": "返回首页"
 }

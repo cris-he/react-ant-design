@@ -8,7 +8,9 @@ import IntlMessage from '../../utils/IntlMessage';
 import styles from './index.less'
 
 import { Layout, Menu, Icon } from 'antd';
+
 const { Sider } = Layout;
+const { SubMenu } = Menu;
 
 class SideMenu extends React.Component {
     state = {
@@ -44,18 +46,43 @@ class SideMenu extends React.Component {
             >
                 <div className={styles.logo} />
                 <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-                    <Menu.Item key="1">
+                    <Menu.Item key="Dashboard">
                         <Link to="/dashboard">
-                            <Icon type="user" />
+                            <Icon type="dashboard" />
                             <span><IntlMessage id="SideMenu-Dashboard" /></span>
                         </Link>
                     </Menu.Item>
-                    <Menu.Item key="2">
+                    <Menu.Item key="Simple">
                         <Link to="/simple">
-                            <Icon type="video-camera" />
+                            <Icon type="check-circle" />
                             <span><IntlMessage id="SideMenu-Simple" /></span>
                         </Link>
                     </Menu.Item>
+                    <SubMenu
+                        key="Exception"
+                        title={
+                            <span>
+                                <Icon type="warning" />
+                                <span>Exception</span>
+                            </span>
+                        }
+                    >
+                        <Menu.Item key="Exception403">
+                            <Link to="/exception/403">
+                                403
+                            </Link>
+                        </Menu.Item>
+                        <Menu.Item key="Exception404">
+                            <Link to="/exception/404">
+                                404
+                            </Link>
+                        </Menu.Item>
+                        <Menu.Item key="Exception500">
+                            <Link to="/exception/500">
+                                500
+                            </Link>
+                        </Menu.Item>
+                    </SubMenu>
                 </Menu>
             </Sider>
         );
