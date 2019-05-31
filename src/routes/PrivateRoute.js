@@ -11,10 +11,10 @@ const PrivateRoute = () => (
     <Switch>
         <Route path='/dashboard' component={Dashboard} />
         <Route path='/simple' component={Simple} />
-        <Route path='/Exception/403' component={Exception403} />
-        <Route path='/Exception/404' component={Exception404} />
-        <Route path='/Exception/500' component={Exception500} />
-        <Redirect from='/Exception/' to="/Exception/404" />
+        <Route path='/exception/403' component={Exception403} />
+        <Route path='/exception/404' component={Exception404} />
+        <Route path='/exception/500' component={Exception500} />
+        <Redirect from='/Exception/' to="/exception/404" />
     </Switch>
 )
 
