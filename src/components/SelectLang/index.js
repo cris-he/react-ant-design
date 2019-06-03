@@ -20,14 +20,18 @@ class SelectLang extends PureComponent {
   render() {
     const { className } = this.props;
     const selectedLang = this.props.settings.locale;
-    const locales = ['zh-Hans-CN', 'en-US'];
+    const locales = ['zh-CN', 'zh-TW', 'en-US', 'pt-BR'];
     const languageLabels = {
-      'zh-Hans-CN': '简体中文',
+      'zh-CN': '简体中文',
+      'zh-TW': '繁体中文',
       'en-US': 'English',
+      'pt-BR': 'Português',
     };
     const languageIcons = {
-      'zh-Hans-CN': 'CN',
-      'en-US': 'EN',
+      'zh-CN': '🇨🇳',
+      'zh-TW': '🇭🇰',
+      'en-US': '🇬🇧',
+      'pt-BR': '🇧🇷',
     };
     const langMenu = (
       <Menu className={styles.menu} selectedKeys={[selectedLang]} onClick={({ key }) => this.props.settingAction.setLocale(key)}>

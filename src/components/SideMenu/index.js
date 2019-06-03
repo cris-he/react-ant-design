@@ -49,13 +49,13 @@ class SideMenu extends React.Component {
                     <Menu.Item key="Dashboard">
                         <Link to="/dashboard">
                             <Icon type="dashboard" />
-                            <span><IntlMessage id="SideMenu-Dashboard" /></span>
+                            <span><IntlMessage id="menu.dashboard" /></span>
                         </Link>
                     </Menu.Item>
                     <Menu.Item key="Simple">
                         <Link to="/simple">
                             <Icon type="check-circle" />
-                            <span><IntlMessage id="SideMenu-Simple" /></span>
+                            <span><IntlMessage id="menu.simple" /></span>
                         </Link>
                     </Menu.Item>
                     <SubMenu
@@ -63,7 +63,7 @@ class SideMenu extends React.Component {
                         title={
                             <span>
                                 <Icon type="warning" />
-                                <span>Exception</span>
+                                <span><IntlMessage id="menu.exception" /></span>
                             </span>
                         }
                     >

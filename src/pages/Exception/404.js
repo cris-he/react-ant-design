@@ -6,8 +6,8 @@ import IntlMessage from '../../utils/IntlMessage';
 const Exception404 = () => (
   <Exception
     type="404"
-    desc={<IntlMessage id="SideMenu-Exception-404" />}
-    backText={<IntlMessage id="SideMenu-Exception-Back-Button" />}
+    desc={<IntlMessage id="app.exception.description.404" />}
+    backText={<IntlMessage id="app.exception.back" />}
   />
 );
 

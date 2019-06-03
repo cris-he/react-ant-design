@@ -4,6 +4,7 @@ import { Icon } from 'antd';
 import DocumentTitle from 'react-document-title';
 import styles from './PublicLayout.less';
 
+import logo from '../assets/logo.svg';
 
 const copyright = (
   <Fragment>
@@ -24,7 +25,7 @@ class AuthLayout extends Component {
             <div className={styles.top}>
               <div className={styles.header}>
                 <Link to="/">
-                  <img alt="logo" className={styles.logo} src='https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/70/706e041286da49ccdac503882d75a6484cf3c4a4_full.jpg' />
+                  <img alt="logo" className={styles.logo} src={logo} />
                   <span className={styles.title}>Ant Design</span>
                 </Link>
               </div>
