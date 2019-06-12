@@ -83,6 +83,12 @@ class SideMenu extends React.Component {
                             </Link>
                         </Menu.Item>
                     </SubMenu>
+                    <Menu.Item key="Calendar">
+                        <Link to="/calendar">
+                            <Icon type="calendar" />
+                            <span><IntlMessage id="menu.calendar" /></span>
+                        </Link>
+                    </Menu.Item>
                 </Menu>
             </Sider>
         );
